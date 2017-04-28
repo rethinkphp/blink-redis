@@ -7,6 +7,7 @@ use DateInterval;
 use Traversable;
 use blink\core\Object;
 use Psr\SimpleCache\CacheInterface;
+use blink\core\InvalidConfigException;
 
 /**
  * Class Cache
@@ -37,10 +38,17 @@ class Cache extends Object implements CacheInterface
     public $serializer = ['serialize', 'unserialize'];
 
 
-    public function __construct($config = [])
+    public function init()
     {
+        if (is_array($this->redis)) {
+            $this->redis = make($this->redis);
+        } else if (is_string($this->redis) && app()->has($this->redis)) {
+            $this->redis = app()->get($this->redis);
+        }
 
-        parent::__construct($config);
+        if (!$this->redis instanceof Client) {
+            throw new InvalidConfigException(sprintf('The %s::$redis configuration is invalid', get_class($this)));
+        }
     }
 
     /**
