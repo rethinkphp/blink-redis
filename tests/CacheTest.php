@@ -53,8 +53,10 @@ class CacheTest extends SimpleCacheTest
             [Client::class],
             [new Client()],
             [
-                'class' => Client::class,
-                'servers' => 'tcp://127.0.0.1:6379',
+                [
+                    'class' => Client::class,
+                    'servers' => 'tcp://127.0.0.1:6379',
+                ],
             ],
         ];
     }
