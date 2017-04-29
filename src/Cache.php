@@ -110,7 +110,7 @@ class Cache extends Object implements CacheInterface
 
         $keys = $this->normalizeKeys($keys);
 
-        array_map([$this, 'assertKey'], $keys);
+        array_walk($keys, [$this, 'assertKey']);
 
         $storedKeys = array_map([$this, 'buildKey'], $keys);
 
@@ -138,7 +138,7 @@ class Cache extends Object implements CacheInterface
 
         $keys = array_column($values, 0);
 
-        array_map([$this, 'assertKey'], $keys);
+        array_walk($keys, [$this, 'assertKey']);
 
         foreach ($values as list($key, $value)) {
             $this->setInternal((string)$key, $value, $ttl);
@@ -162,7 +162,7 @@ class Cache extends Object implements CacheInterface
 
         $keys = $this->normalizeKeys($keys);
 
-        array_map([$this, 'assertKey'], $keys);
+        array_walk($keys, [$this, 'assertKey']);
 
         $keys = array_map([$this, 'buildKey'], $keys);
 
