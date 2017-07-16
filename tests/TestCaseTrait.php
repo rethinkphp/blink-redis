@@ -1,6 +1,7 @@
 <?php
 
 namespace blink\redis\tests;
+
 use blink\core\Application;
 use blink\redis\Client;
 

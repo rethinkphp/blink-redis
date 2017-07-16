@@ -1,16 +1,16 @@
 <?php
 namespace blink\redis\tests;
 
-use blink\redis\Cache;
+use blink\redis\cache\SampleCache;
 use blink\redis\Client;
-use Cache\IntegrationTests\SimpleCacheTest;
+use Cache\IntegrationTests\SimpleCacheTest as BaseTest;
 
 /**
  * Class CacheTest
  *
  * @package blink\redis\tests
  */
-class CacheTest extends SimpleCacheTest
+class SampleCacheTest extends BaseTest
 {
     use TestCaseTrait {
         setUp as mySetUp;
@@ -26,7 +26,7 @@ class CacheTest extends SimpleCacheTest
 
     public function createSimpleCache()
     {
-        return new Cache(['redis' => new Client()]);
+        return new SampleCache(['redis' => new Client()]);
     }
 
     public function invalidConfigurations()
@@ -43,7 +43,7 @@ class CacheTest extends SimpleCacheTest
      */
     public function testInvalidConfigurations($redis)
     {
-        new Cache(['redis' => $redis]);
+        new SampleCache(['redis' => $redis]);
     }
 
     public function validConfigurations()
@@ -66,7 +66,7 @@ class CacheTest extends SimpleCacheTest
      */
     public function testValidConfigurations($redis)
     {
-        $cache = new Cache(['redis' => $redis]);
+        $cache = new SampleCache(['redis' => $redis]);
 
         $this->assertInstanceOf(Client::class, $cache->redis);
     }

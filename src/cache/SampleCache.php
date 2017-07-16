@@ -1,20 +1,21 @@
 <?php
 
-namespace blink\redis;
+namespace blink\redis\cache;
 
 use DateTime;
 use DateInterval;
 use Traversable;
 use blink\core\Object;
+use blink\redis\Client;
 use Psr\SimpleCache\CacheInterface;
 use blink\core\InvalidConfigException;
 
 /**
- * Class Cache
+ * Class SampleCache
  *
  * @package blink\redis
  */
-class Cache extends Object implements CacheInterface
+class SampleCache extends Object implements CacheInterface
 {
     /**
      * The redis client

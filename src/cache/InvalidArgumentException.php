@@ -1,6 +1,6 @@
 <?php
 
-namespace blink\redis;
+namespace blink\redis\cache;
 
 use InvalidArgumentException as BaseException;
 
