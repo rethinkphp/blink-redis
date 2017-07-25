@@ -2,6 +2,7 @@
 
 namespace blink\redis\cache;
 
+use blink\redis\SerializerTrait;
 use DateTime;
 use DateInterval;
 use Traversable;
@@ -17,6 +18,8 @@ use blink\core\InvalidConfigException;
  */
 class SampleCache extends Object implements CacheInterface
 {
+    use SerializerTrait;
+
     /**
      * The redis client
      *
@@ -30,14 +33,6 @@ class SampleCache extends Object implements CacheInterface
      * @var string
      */
     public $prefix;
-
-    /**
-     * The serializer
-     *
-     * @var array
-     */
-    public $serializer = ['serialize', 'unserialize'];
-
 
     public function init()
     {
@@ -266,19 +261,5 @@ class SampleCache extends Object implements CacheInterface
         }
 
         return $results;
-    }
-
-    protected function serialize($value)
-    {
-        return $this->serializer[0]($value);
-    }
-
-    protected function unserialize($value, $default = null)
-    {
-        if ($value) {
-            return $this->serializer[1]($value);
-        } else {
-            return $default;
-        }
     }
 }
