@@ -4,6 +4,8 @@ namespace blink\redis\tests;
 
 use blink\core\Application;
 use blink\redis\Client;
+use blink\session\Manager;
+use blink\redis\session\Storage;
 
 /**
  * Class TestCaseTrait
@@ -28,6 +30,10 @@ trait TestCaseTrait
             'root' => '.',
             'services' => [
                 'redis' => Client::class,
+                'session' => [
+                    'class' => Manager::class,
+                    'storage' => Storage::class,
+                ]
             ],
         ]);
 
