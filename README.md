@@ -6,7 +6,7 @@
 
 ## Installation 
 
-You can install the latest version of blink-sentry by using Composer:
+You can install the latest version of blink-redis by using Composer:
 
 ```
 composer require blink/redis:dev-master
