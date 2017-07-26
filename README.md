@@ -34,7 +34,7 @@ The following is a sample example:
 ```
 
 Once the redis service configured, we can access redis server through `app()->redis` in our application. As 
-The Redis component is based on [Predis](https://github.com/nrk/predis), you can refer their documentation on
+the Redis component is based on [Predis](https://github.com/nrk/predis), you can refer their documentation on
 how to issue command to redis servers.
 
 ### Using redis as a cache service
@@ -53,7 +53,7 @@ a cache service in `services.php` likes the folowing:
 Once the cache service configured, we can access the cache service through `app()->cache` in our application.
 
 
-### Using Redis as session storage
+### Using redis as session storage
 
 The component also provides a Session Storgae class which allows Blink to store application sessions into redis.
 we can configure the session storage in the following way:
