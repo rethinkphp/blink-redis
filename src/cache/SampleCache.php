@@ -2,6 +2,7 @@
 
 namespace blink\redis\cache;
 
+use blink\core\BaseObject;
 use blink\redis\SerializerTrait;
 use DateTime;
 use DateInterval;
@@ -16,7 +17,7 @@ use blink\core\InvalidConfigException;
  *
  * @package blink\redis
  */
-class SampleCache extends Object implements CacheInterface
+class SampleCache extends BaseObject implements CacheInterface
 {
     use SerializerTrait;
 

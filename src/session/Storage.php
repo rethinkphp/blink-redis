@@ -2,6 +2,7 @@
 
 namespace blink\redis\session;
 
+use blink\core\BaseObject;
 use blink\core\Object;
 use blink\session\StorageContract;
 use blink\redis\SerializerTrait;
@@ -12,7 +13,7 @@ use blink\redis\Client;
  *
  * @package blink\redis\session
  */
-class Storage extends Object implements StorageContract
+class Storage extends BaseObject implements StorageContract
 {
     use SerializerTrait;
 
