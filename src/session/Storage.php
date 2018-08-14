@@ -3,7 +3,6 @@
 namespace blink\redis\session;
 
 use blink\core\BaseObject;
-use blink\core\Object;
 use blink\session\StorageContract;
 use blink\redis\SerializerTrait;
 use blink\redis\Client;

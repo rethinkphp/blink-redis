@@ -7,7 +7,6 @@ use blink\redis\SerializerTrait;
 use DateTime;
 use DateInterval;
 use Traversable;
-use blink\core\Object;
 use blink\redis\Client;
 use Psr\SimpleCache\CacheInterface;
 use blink\core\InvalidConfigException;
