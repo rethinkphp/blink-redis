@@ -16,7 +16,7 @@ trait TestCaseTrait
 {
     protected $app;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->app = $this->createApplication();
     }
@@ -42,7 +42,7 @@ trait TestCaseTrait
         return $app;
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->app = null;
     }

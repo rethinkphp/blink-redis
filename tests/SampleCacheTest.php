@@ -17,7 +17,7 @@ class SampleCacheTest extends BaseTest
         tearDown as myTearDown;
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         self::mySetUp();
 
@@ -39,10 +39,11 @@ class SampleCacheTest extends BaseTest
 
     /**
      * @dataProvider invalidConfigurations
-     * @expectedException \blink\core\InvalidConfigException
      */
     public function testInvalidConfigurations($redis)
     {
+        $this->expectException(\blink\core\InvalidConfigException::class);
+
         new SampleCache(['redis' => $redis]);
     }
 
@@ -72,7 +73,7 @@ class SampleCacheTest extends BaseTest
     }
 
 
-    public function tearDown()
+    public function tearDown(): void
     {
         self::myTearDown();
         parent::tearDown();
