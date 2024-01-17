@@ -3,6 +3,7 @@
 namespace blink\redis\cache;
 
 use blink\core\BaseObject;
+use blink\di\attributes\Inject;
 use blink\redis\SerializerTrait;
 use DateTime;
 use DateInterval;
@@ -25,27 +26,15 @@ class SampleCache extends BaseObject implements CacheInterface
      *
      * @var \blink\redis\Client
      */
-    public $redis;
+    #[Inject]
+    public Client $redis;
 
     /**
      * The cache key prefix
      *
      * @var string
      */
-    public $prefix;
-
-    public function init()
-    {
-        if (is_array($this->redis)) {
-            $this->redis = make($this->redis);
-        } else if (is_string($this->redis) && app()->has($this->redis)) {
-            $this->redis = app()->get($this->redis);
-        }
-
-        if (!$this->redis instanceof Client) {
-            throw new InvalidConfigException(sprintf('The %s::$redis configuration is invalid', get_class($this)));
-        }
-    }
+    public string $prefix;
 
     /**
      * @inheritDoc
