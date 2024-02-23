@@ -17,9 +17,11 @@ class RedisServiceProvider extends ServiceProvider
             'servers' => [env('redis_url', 'tcp://127.0.0.1:6379')],
         ]);
 
-        $container->bind('cache', [
-            'class' => SampleCache::class,
-            'prefix' => env('cache_prefix_', 'cache_'),
-        ]);
+        $container->bind('cache', function () use ($container) {
+            return new SampleCache([
+                'redis' => $container->get('redis'),
+                'prefix' => env('cache_prefix_', 'cache_'),
+            ]);
+        });
     }
 }
