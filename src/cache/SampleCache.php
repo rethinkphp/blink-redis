@@ -26,7 +26,6 @@ class SampleCache extends BaseObject implements CacheInterface
      *
      * @var \blink\redis\Client
      */
-    #[Inject]
     public Client $redis;
 
     /**
