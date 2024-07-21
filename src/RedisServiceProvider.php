@@ -20,7 +20,7 @@ class RedisServiceProvider extends ServiceProvider
         $container->bind('cache', function () use ($container) {
             return new SampleCache([
                 'redis' => $container->get('redis'),
-                'prefix' => env('cache_prefix_', 'cache_'),
+                'prefix' => env('cache_prefix', 'cache_'),
             ]);
         });
     }
